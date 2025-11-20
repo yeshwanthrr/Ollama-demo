@@ -1,0 +1,25 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+      - ./Modelfile:/models/Modelfile:ro
+    restart: unless-stopped
+
+  demo:
+    build: .
+    container_name: ollama-demo
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./:/workdir
+    working_dir: /workdir
+    command: ["bash", "-lc", "sleep 3 && python3 demo.py"]
+
+volumes:
+  ollama-data:
