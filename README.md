@@ -14,3 +14,6 @@
 - System prompt enforces exact responses for 3 cases: math answers (plain numeric), `ping` → `pong!!!`, otherwise refusal phrase:  
   `I am designed to only answer mathematical questions or respond to 'ping'.`
 - Deterministic parameters (`temperature: 0.0`, `top_p: 0.0`, `top_k: 1`) ensure reproducible exact outputs.
+
+## Output
+<img width="672" height="243" alt="image" src="https://github.com/user-attachments/assets/969cb53d-450c-450b-a1f3-b4cb049d2850" />
